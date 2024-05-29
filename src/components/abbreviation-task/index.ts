@@ -1,0 +1,1 @@
+export { default as AbbreviationTask } from './abbreviation-task.vue'
