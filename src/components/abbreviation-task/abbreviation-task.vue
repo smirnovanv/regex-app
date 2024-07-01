@@ -1,21 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { BaseReplaceTask } from '@/components/base-replace-task';
+import { insertAbbr } from '../../utils/insert-abbr';
 
 const taskRef= ref<InstanceType<typeof BaseReplaceTask>>();
-
-const Abbr = {
-  CSS: `Cascading Style Sheets`,
-  HTML: `Hyper Text Markup Language`,
-  JS: `JavaScript`
-};
-
-const insertAbbr = (str: string) => {
-  return str.replace(/[^\.]\b(css|html|js)\b/gi, (s, $1) => {
-    const shortName = $1.toUpperCase();   
-    return ` <abbr title="${Abbr[shortName]}">${shortName}</abbr>`
-  })
-};
 
 const handleClick = (value: string) => {
     const result = insertAbbr(value);
